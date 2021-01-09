@@ -1,0 +1,31 @@
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+
+import { MainLayoutPage } from './main-layout.page';
+
+const routes: Routes = [
+  {
+    path: '',
+    component: MainLayoutPage,
+    children: [
+      {
+        path: 'history',
+        loadChildren: () => import('../history/history.module').then( m => m.HistoryPageModule)
+      },
+      {
+        path: 'addorder',
+        loadChildren: () => import('../addorder/addorder.module').then( m => m.AddorderPageModule)
+      }
+    ]
+  },
+  {
+    path: '',
+    redirectTo: '/dash/history'
+  }
+];
+
+@NgModule({
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule],
+})
+export class MainLayoutPageRoutingModule {}

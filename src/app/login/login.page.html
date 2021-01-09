@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <form
+      class="card"
+      [formGroup]="form"
+      (ngSubmit)="onSubmit()"
+    >
+    <div class="card-content">
+      <ion-card-header>
+        <ion-card-subtitle>CRM</ion-card-subtitle>
+        <ion-card-title>Вход в систему</ion-card-title>
+      </ion-card-header>
+      <div class="input-field">
+        <ion-item>
+          <ion-label position="floating">E-mail</ion-label>
+          <ion-input
+            formControlName="email"
+            id="email"
+            type="email">
+          </ion-input>
+        </ion-item>
+        <span
+          class="helper-text red-text"
+          *ngIf="form.get('email').invalid && form.get('email').touched"
+        >
+          <span *ngIf="form.get('email').errors['required']">Email не должен быть пустым</span>
+          <span *ngIf="form.get('email').errors['email']">Введите корректный email адрес</span>
+        </span>
+      </div>
+      <div class="input-field">
+        <ion-item>
+          <ion-label position="floating">Пароль</ion-label>
+          <ion-input
+            formControlName="password"
+            type="password">
+          </ion-input>
+        </ion-item>
+        <span
+          class="helper-text red-text"
+          *ngIf="form.get('password').invalid && form.get('password').touched"
+        >
+          <span *ngIf="form.get('password').errors['required']">Пароль не должен быть пустым</span>
+          <span *ngIf="form.get('password').errors['minlength'] && form.get('password').errors['minlength']['requiredLength']">
+            Пароль должен быть больше {{form.get('password').errors['minlength']['requiredLength']}} символов.
+            Сейчас {{form.get('password').errors['minlength']['actualLength']}}
+          </span>
+        </span>
+      </div>
+    </div>
+    <div class="card-action">
+      <ion-button
+        type="submit"
+        class="ion-margin"
+        [disabled]="form.invalid || form.disabled"
+      >
+        Войти
+      </ion-button>
+    </div>
+  </form>
+  </ion-card>
+</ion-content>
