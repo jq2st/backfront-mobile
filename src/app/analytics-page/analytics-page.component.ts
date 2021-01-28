@@ -1,5 +1,5 @@
 import { Subscription } from 'rxjs';
-import { Chart } from 'chart.js';
+// import { Chart } from 'chart.js';
 import { AnalyticsPage } from './../shared/interfaces';
 import { AnalyticsService } from './../shared/services/analytics.service';
 import { Component, OnInit, ElementRef, OnDestroy, AfterViewInit, ViewChild } from '@angular/core';
@@ -47,8 +47,8 @@ export class AnalyticsPageComponent implements AfterViewInit, OnDestroy {
       const orderCtx = this.orderRef.nativeElement.getContext('2d')
       orderCtx.canvas.height = '300px'
 
-      new Chart(gainCtx, createChartConfig(gainConfig))
-      new Chart(orderCtx, createChartConfig(orderConfig))
+      // new Chart(gainCtx, createChartConfig(gainConfig))
+      // new Chart(orderCtx, createChartConfig(orderConfig))
 
       this.pending = false
     })

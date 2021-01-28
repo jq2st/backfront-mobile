@@ -7,6 +7,8 @@ import { IonicModule } from '@ionic/angular';
 import { HistoryPageRoutingModule } from './history-routing.module';
 
 import { HistoryPage } from './history.page';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptor } from '../shared/classes/token.interceptor';
 
 @NgModule({
   imports: [
@@ -15,6 +17,13 @@ import { HistoryPage } from './history.page';
     IonicModule,
     HistoryPageRoutingModule
   ],
-  declarations: [HistoryPage]
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      multi: true,
+      useClass: TokenInterceptor
+    }
+  ],
+  declarations: [HistoryPage,]
 })
 export class HistoryPageModule {}
