@@ -8,10 +8,11 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <ion-item *ngFor="let order of orders">
-    {{order.date}}
-  </ion-item>
-
+  <div *ngIf="orders.length!==0; else empty">
+    <ion-item *ngFor="let order of orders">
+      {{order.date|date:'short'}}
+    </ion-item>
+  </div>
   <!-- <div class="page-title">
     <button (click)="isFilterVisible=!isFilterVisible" class="btn btn-small" [ngClass]="{'active': isFilterVisible, 
   'red':isFiltered()}"

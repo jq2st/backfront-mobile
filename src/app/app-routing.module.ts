@@ -14,7 +14,11 @@ const routes: Routes = [
   {
     path: 'dash',
     loadChildren: () => import('./main-layout/main-layout.module').then( m => m.MainLayoutPageModule)
+  },  {
+    path: 'reg',
+    loadChildren: () => import('./reg/reg.module').then( m => m.RegPageModule)
   }
+
 ];
 
 @NgModule({

@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Вход</ion-title>
+    <ion-title>Регистрация</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -14,7 +14,7 @@
     <div class="card-content">
       <ion-card-header>
         <ion-card-subtitle>CRM</ion-card-subtitle>
-        <ion-card-title>Вход в систему</ion-card-title>
+        <ion-card-title>Заполните поля для регистрации</ion-card-title>
       </ion-card-header>
       <div class="input-field">
         <ion-item>
@@ -59,19 +59,19 @@
         class="ion-margin"
         [disabled]="form.invalid || form.disabled"
       >
-        Войти
+        Зарегистрироваться
       </ion-button>
     </div>
   </form>
   </ion-card>
-  <ion-button
+   <ion-button
         type="submit"
         class="ion-margin"
         [disabled]="form.invalid || form.disabled"
-        routerLink="/reg"
+        routerLink="/login"
         expand="block"
         color="dark"
   >
-        Регистрация
+        Авторизация
   </ion-button>
 </ion-content>
