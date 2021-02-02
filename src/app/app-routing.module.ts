@@ -18,7 +18,11 @@ const routes: Routes = [
   {
     path: 'reg',
     loadChildren: () => import('./reg/reg.module').then( m => m.RegPageModule)
+  },  {
+    path: 'analitics',
+    loadChildren: () => import('./analitics/analitics.module').then( m => m.AnaliticsPageModule)
   }
+
 
 ];
 

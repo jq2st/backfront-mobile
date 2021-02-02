@@ -7,14 +7,17 @@ import { Injectable } from '@angular/core';
     providedIn:'root'
 })
 export class AnalyticsService{
+
+    basea = 'https://salty-cove-68792.herokuapp.com'
+
     constructor (private http:HttpClient){}
 
     getOverview():Observable <any>{
-        return this.http.get<any>('/api/analytics/overview')
+        return this.http.get<any>(this.basea + '/api/analytics/overview')
 
     }
 
     getAnalytics():Observable<any>{
-        return this.http.get<any>('/api/analytics/analytics')
+        return this.http.get<any>(this.basea + '/api/analytics/analytics')
     }
 }

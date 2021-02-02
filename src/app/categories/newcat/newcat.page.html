@@ -2,7 +2,7 @@
   <ion-toolbar>
     <ion-item>
       <ion-back-button></ion-back-button>
-      <ion-title *ngIf="category">{{category.name}}</ion-title>
+      <ion-title>Добавить категорию</ion-title>
     </ion-item>
   </ion-toolbar>
 </ion-header>
@@ -32,10 +32,6 @@
           <ion-icon slot="start" name="save-outline"></ion-icon>
           Сохранить изменения
         </ion-button>
-        <ion-button color="danger" (click)="deleteCategory()" *ngIf="!isNew">
-          <ion-icon slot="start" name="trash-outline"></ion-icon>
-          Удалить
-        </ion-button>
       </div>
   </form>
   
@@ -44,7 +40,6 @@
     </div> -->
   </div>
   
-  <app-positons *ngIf="category?._id" [categoryId]='category._id'></app-positons>
 </ion-content>
 
 

@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-item>
+      <ion-menu-button></ion-menu-button>
+      <ion-title>Аналитика</ion-title>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card [style.display]="pending? 'none' : 'block'">
+    <div class="average-price">
+      <p>Средний чек <strong>{{average}} р.</strong></p>
+    </div>
+  
+    <ion-item class="analytics-block pb3">
+      <h5>Выручка</h5>
+      <canvas #gain></canvas>
+    </ion-item>
+  
+    <ion-item class="analytics-block">
+      <h5>Заказы</h5>
+      <canvas #order></canvas>
+    </ion-item>
+  </ion-card>
+</ion-content>

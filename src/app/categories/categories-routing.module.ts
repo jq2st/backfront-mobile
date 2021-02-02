@@ -18,6 +18,11 @@ const routes: Routes = [
   {
     path: ':id',
     loadChildren: () => import('./category/category.module').then( m => m.CategoryPageModule)
+  },
+  {
+    path: '/new',
+    pathMatch: 'full',
+    loadChildren: () => import('./newcat/newcat.module').then( m => m.NewcatPageModule)
   }
 ];
 
