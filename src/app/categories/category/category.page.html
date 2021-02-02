@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-item>
+      <ion-menu-button></ion-menu-button>
+      <ion-title *ngIf="category">{{category.name}}</ion-title>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="row">
+    <form class="col s12 l6" [formGroup]="form" (ngSubmit)='onSubmit()'>
+      <div class="input-field">
+        <ion-input id="name" type="text" formControlName="name" [ngClass]="{'invalid': form.get('name').invalid && form.get('name').touched}"></ion-input>
+        <span class="helper-text red-text" *ngIf="form.get('name').invalid && form.get('name').touched">
+            <span *ngIf="form.get('name').hasError('required')">Имя категории не может быть пустым</span>
+        </span>
+      </div>
+  
+      <!-- <div>
+        <input type="file" class="display-none" #input (change)="onFileUpload($event)">
+        <button (click)="triggerClick()" [disabled]="form.disabled" class="waves-effect waves-light btn orange lighten-2 mb2" type="button">
+          <i class="material-icons left">backup</i>
+          Загрузить изображение
+        </button>
+      </div> -->
+  
+      <div>
+        <ion-button class="waves-effect waves-light btn" type="submit" [disabled]='form.invalid || form.disabled'>
+          Сохранить изменения
+        </ion-button>
+        <ion-button class="btn btn-small red" (click)="deleteCategory()" *ngIf="!isNew">
+          Удалить
+        </ion-button>
+      </div>
+  </form>
+  
+    <!-- <div class="col s12 l4 center">
+      <img class="responsive-img h200" [src]='imagePreview' *ngIf="imagePreview">
+    </div> -->
+  </div>
+  
+  <!-- <app-positons *ngIf="category?._id" [categoryId]='category._id'></app-positons> -->
+</ion-content>
+
+
+  <!-- <div class="page-title">
+    <h4>
+      <a [routerLink]="['/categories']">Категории</a>
+      <i class="material-icons">keyboard_arrow_right</i>
+      {{isNew ? 'Добавить': 'Редактировать'}} категорию
+    </h4>
+    <span>
+     
+    </span>
+  </div> -->
+
+

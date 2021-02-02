@@ -15,6 +15,10 @@ const routes: Routes = [
       {
         path: 'addorder',
         loadChildren: () => import('../addorder/addorder.module').then( m => m.AddorderPageModule)
+      },
+      {
+        path: 'categories',
+        loadChildren: () => import('../categories/categories.module').then( m => m.CategoriesPageModule)
       }
     ]
   },

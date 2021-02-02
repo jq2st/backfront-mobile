@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-item>
+      <ion-menu-button></ion-menu-button>
+      <ion-title>Ассортимент</ion-title>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-button [routerLink]="['/categories/new']" routerLinkActive="router-link-active" class="ion-margin" expand="block">Добавить категорию</ion-button>
+  <div class="row" *ngIf="categories$ | async as categories; else loader">
+      <div class="collection" *ngIf="categories.length!==0; else empty" >
+        <ion-item [routerLink]="[category._id]" routerLinkActive="router-link-active"  class="collection-item" *ngFor="let category of categories">
+          {{category.name}}
+        </ion-item>
+      </div>
+  </div>
+</ion-content>
+
+
+
+<ng-template #loader>
+  Loading
+</ng-template>
+
+<ng-template #empty>
+    <div class="center"> У вас нет ни одной категори</div>
+</ng-template>
